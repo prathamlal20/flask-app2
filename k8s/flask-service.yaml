@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-service
-  namespace: jenkins-agent
+  name: flask-app-service
+  namespace: flask-app-2
 spec:
   selector:
     app: flask-app
