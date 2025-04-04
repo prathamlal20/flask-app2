@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-app2
+  name: flask-app
   namespace: jenkins-agent
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask-app2
+      app: flask-app
   template:
     metadata:
       labels:
-        app: flask-app2
+        app: flask-app
     spec:
       containers:
-        - name: flask-app2
+        - name: flask-app
           image: prathamlal20/flask-app2:latest  # Same as the Docker image name
           ports:
             - containerPort: 5000
