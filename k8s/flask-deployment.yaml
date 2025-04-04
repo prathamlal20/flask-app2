@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app2
+  namespace: jenkins-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-app2
+  template:
+    metadata:
+      labels:
+        app: flask-app2
+    spec:
+      containers:
+        - name: flask-app2
+          image: prathamlal20/flask-app2:latest  # Same as the Docker image name
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MYSQL_HOST
+              value: "172.31.93.171"  # Update MySQL server IP
+            - name: MYSQL_USER
+              value: "user"
+            - name: MYSQL_PASSWORD
+              value: "password"
+            - name: MYSQL_DATABASE
+              value: "mysql_python"
